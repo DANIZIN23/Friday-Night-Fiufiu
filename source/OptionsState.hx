@@ -88,7 +88,16 @@ class OptionsState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
-		if (controls.ACCEPT) {
+		#if android
+		if (virtualPad.buttonC.justPressed) {
+			#if android
+			removeVirtualPad();
+			#end
+			openSubState(new android.AndroidControlsSubState());
+		}
+		#end
+
+if (controls.ACCEPT) {
 			for (item in grpOptions.members) {
 				item.alpha = 0;
 			}
