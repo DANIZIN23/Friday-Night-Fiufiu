@@ -27,6 +27,9 @@ class FlashingState extends MusicBeatState
 		warnText.setGraphicSize(Std.int(warnText.width * 0.9));
 		warnText.screenCenter(XY);
 		add(warnText);
+	#if android
+	addVirtualPad(NONE, A_B);
+	#end
 	}
 
 	override function update(elapsed:Float)
